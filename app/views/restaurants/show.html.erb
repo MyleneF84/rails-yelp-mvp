@@ -1,0 +1,19 @@
+<div class="container mt-3 justify-content-center">
+  <div class="restaurant-infos align-items-center">
+    <h1> <%= @restaurant.name  %></h1>
+    <p>Address : <%= @restaurant.address %></p>
+    <p> Phone number : <%= @restaurant.phone_number %></p>
+    <p>Category : <%= @restaurant.category %></p>
+  </div>
+  <div class="reviews">
+    <p><strong>Reviews</strong></p>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.content %> <%= review.rating %> / 5 </li>
+      <% end %>
+    </ul>
+</div>
+
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
+  <%#= render "shared/new" %>
+</div>
